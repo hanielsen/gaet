@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>gæt</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="icon" href="gaet.png">
+<style>
+td {
+  width:1.1em;
+  border: 1px solid;
+}
+</style>
+</head>
+<body>
+<div>
+<h3>Gæt tal mellem 1 og 100</h3>
+<table id="tbl">
+  <form>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </form>
+</table>
+<button onclick=myf()>Spil igen</button>
+<p id="res"></p> 
+</div>
+
+<script>
+let a11 = document.getElementById("tbl");
+let p1 = document.getElementById("res");
+let r = 50;
+var m = 0;
+
+function myf() 
+{
+    p1.innerText= "";
+    m = 0;
+    r = Math.max(1,Math.floor(Math.random()*100));
+    for (let i=0;i<10;i++) 
+    {
+        for (let j=0;j<10;j++) 
+        {
+            a11.rows[i].cells[j].innerText=1+10*i+j;
+            a11.rows[i].cells[j]
+                .style = "background-color: white";
+            a11.rows[i].cells[j]
+                .addEventListener("click", function(){su(1+10*i+j);
+                                                this.style = "background-color: orange";});            
+        } 
+    }
+
+}
+
+function su(n) 
+{
+    m++;
+    if (n>r)
+    {
+        p1.innerText= n +" er for meget";
+    } 
+    else if (n<r)
+    {
+        p1.innerText= n +" er for lidt";
+    } 
+    else if (n==r)
+    {
+        p1.innerText= n +" er rigtigt efter "+ m +" gæt. Stort til lykke!";
+        m = 0;
+    } 
+}
+        
+myf();
+</script>
+</body>
+</html>
